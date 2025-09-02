@@ -2,13 +2,16 @@ package com.drakefly.ReservationShopify.controller;
 
 import com.drakefly.ReservationShopify.services.ShopifyService;
 import com.google.gson.JsonObject;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "testordersbooking.myshopify.com")
 public class ShopifyController {
 
     private final ShopifyService shopifyService;
@@ -20,6 +23,8 @@ public class ShopifyController {
 
     @GetMapping("/shop")
     public String getShopInfo() {
+        Logger logger = Logger.getLogger(ShopifyController.class.getName());
+        logger.info("getShopInfo a été reçu");
         try {
             JsonObject shopInfo = shopifyService.getShopInfo();
             // Retourne directement la réponse JSON
