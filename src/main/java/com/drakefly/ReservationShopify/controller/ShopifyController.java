@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "testordersbooking.myshopify.com")
+@CrossOrigin(origins = "https://testordersbooking.myshopify.com")
 public class ShopifyController {
 
     private final ShopifyService shopifyService;
